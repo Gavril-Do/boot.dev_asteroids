@@ -6,6 +6,7 @@ from constants import *
 from player import Player
 from asteroid import *
 from asteroidfield import *
+from shot import *
 
 def main():
 	pygame.init
@@ -15,10 +16,12 @@ def main():
 	updatable_group = pygame.sprite.Group()
 	drawable_group = pygame.sprite.Group()
 	asteroid_group = pygame.sprite.Group()
+	shot_group = pygame.sprite.Group()
 
 	Player.containers = (updatable_group, drawable_group)
 	Asteroid.containers = (asteroid_group, updatable_group, drawable_group)
 	AsteroidField.containers = (updatable_group)
+	Shot.containers = (shot_group, updatable_group, drawable_group)
 
 	player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
 	asteroidfield = AsteroidField()
@@ -42,8 +45,7 @@ def main():
 
 		for sprite in drawable_group:
 			sprite.draw(screen)
-	#	player1.draw(screen)
-	#	player1.update(d_time)
+		
 		pygame.display.flip()
 
 		# limit to 60 FPS
