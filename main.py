@@ -32,11 +32,16 @@ def main():
 		
 		screen.fill('black')
 
-		for obj in updatable_group:
-			obj.update(d_time)
+		for sprite in updatable_group:
+			sprite.update(d_time)
 
-		for obj in drawable_group:
-			obj.draw(screen)
+		for asteroid in asteroid_group:
+			if player.collides_with(asteroid):
+				print("Game over!")
+				exit()
+
+		for sprite in drawable_group:
+			sprite.draw(screen)
 	#	player1.draw(screen)
 	#	player1.update(d_time)
 		pygame.display.flip()
