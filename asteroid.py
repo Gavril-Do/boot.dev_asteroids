@@ -1,5 +1,7 @@
 import pygame
+import random
 from circleshape import *
+from constants import *
 
 # class for asteroids
 class Asteroid(CircleShape):
@@ -8,8 +10,6 @@ class Asteroid(CircleShape):
 	
 	def draw(self, screen):
 		pygame.draw.circle(screen, "white", self.position, self.radius, 2)
-		pass
 
 	def update(self, dt):
 		self.position += self.velocity * dt
-		pass
